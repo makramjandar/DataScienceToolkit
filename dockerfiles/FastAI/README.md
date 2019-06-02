@@ -14,28 +14,24 @@ If you are using your own PC with a CUDA enabled device I would highly recommend
 #### Install docker-ce and the nvidia runtime
 The first thing is to install docker and the nvidia runtime to pass a GPU into a container:
 ```shell
-    #Install docker via get.docker script
-    curl -fsSL get.docker.com -o get-docker.sh
+     #Install docker via get.docker script
+     curl -fsSL get.docker.com -o get-docker.sh
+     
+     # Add the package repositories for nvidia docker
+     curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+     distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+     curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+     tee /etc/apt/sources.list.d/nvidia-docker.list
+     apt-get update
+     
+     #Install nvidia-docker2 and reload the Docker daemon configuration
+     apt-get install -y nvidia-docker2
+     pkill -SIGHUP dockerd
+     
+     
+     # To test if everything is installed correctly you can run. This downloads a CUDA base image from docker hub and executes        # nvidia-smi` inside a container which should display your GPU.
+     docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
-#### Add the package repositories for nvidia docker
-```shell
-    curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
-    distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-    curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-      tee /etc/apt/sources.list.d/nvidia-docker.list
-    apt-get update
-``` 
-#### Install nvidia-docker2 and reload the Docker daemon configuration
-```shell
-    docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
-```
-#### To test if everything is installed correctly you can run
-This downloads a CUDA base image from docker hub and executes `nvidia-smi` inside a container which should display your GPU.
-```shell
-    apt-get install -y nvidia-docker2
-    pkill -SIGHUP dockerd
-```
-
 ## Get a pre-build pytorch image with GPU support from nvidia
 The nvidia GPU cloud is not a cloud service provider but an image registry similar to docker hub where you can download pre build images for free. The cool thing is: The developer at nvidia took care of all the necessary libraries and tools you need to have. It’s free and you can use the images for your own or commercial purposes, but you are not allowed to redistribute them.
 Now to download the pytorch image use the command: `docker pull nvcr.io/nvidia/pytorch:18.05-py3`.
