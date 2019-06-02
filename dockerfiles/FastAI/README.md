@@ -73,4 +73,4 @@ ln -s /fastai/fastai/ fastai/data/Notebooks/fastai
 #### Get updates
 To get updates watch this repo or follow me on ...
 
-Credit: Inspired by KaiLicht https://github.com/KaiLicht
+Forked from KaiLicht https://github.com/KaiLicht
