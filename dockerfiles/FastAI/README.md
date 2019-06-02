@@ -1,4 +1,7 @@
-## Dockerfile for the 2018 fast.ai course
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+
+## Dockerfile for the fast.ai course
 This Dockerfile uses a pre-build and GPU-enabled pytorch image from nvidia to create an isolated environment for the 2018 fast.ai course. Those images are very convenient, because they come batteries included: All CUDA libraries, dependencies and pytorch is pre-installed and ready to go. Only the fast.ai library has to be installed.
 
 ### Who should use this Dockerfile?
