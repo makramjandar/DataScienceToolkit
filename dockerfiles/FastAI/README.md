@@ -29,7 +29,8 @@ The first thing is to install docker and the nvidia runtime to pass a GPU into a
      pkill -SIGHUP dockerd
      
      
-     # To test if everything is installed correctly you can run. This downloads a CUDA base image from docker hub and executes        # nvidia-smi` inside a container which should display your GPU.
+     # To test if everything is installed correctly you can run. 
+     # This executes nvidia-smi` inside a container which should display your GPU.
      docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 ```
 ## Get a pre-build pytorch image with GPU support from nvidia
