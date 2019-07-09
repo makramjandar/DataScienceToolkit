@@ -22,4 +22,3 @@ RUN jupyter notebook --generate-config &&\
     echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py
 
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
-Terms
