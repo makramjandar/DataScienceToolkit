@@ -54,7 +54,7 @@ Now you should create a data folder on your **host** where you download the cats
 ```
 Now you can use the following command to start a container from the image. It's mounting the data folder into the container and also exposes the port 8888 for your browser. Use `localhost:8888` or the IP of your workstation. Keep in mind that only the data in `fast.ai/data` will be persistent when you start a new container!
 ```shell
-$ docker run --runtime=nvidia -it --rm -v ~/data/fastai_course-v3:/fastai_course-v3/data -p 8888:8888 makramjandar/fastai_course-v3
+$ docker run --runtime=nvidia -it --rm -v ~/data/fastai/course-v3:/fastai_course-v3/data -p 8888:8888 makramjandar/fastai_course-v3
 ```
 Now let's create a `Notebooks` folder in our `data` folder to save Notebooks we create ourselves. Also we have to link the fast.ai library so that we can easily import things:
 ```shell
