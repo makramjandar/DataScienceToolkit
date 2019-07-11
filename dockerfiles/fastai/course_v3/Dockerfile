@@ -7,15 +7,15 @@ RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recomme
     python-qt4 \
     libpng-dev &&\
 rm -rf /var/lib/apt/lists/* &&\
-mkdir /course-v3
+mkdir /course_v3
 
-WORKDIR /course-v3
+WORKDIR /course_v3
 
 RUN git clone https://github.com/fastai/course-v3.git . &&\
     /opt/conda/bin/conda env create &&\
     /opt/conda/bin/conda clean -ya
 
-ENV PATH /opt/conda/envs/course-v3/bin:$PATH
+ENV PATH /opt/conda/envs/course_v3/bin:$PATH
 
 RUN jupyter notebook --generate-config &&\
     echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py &&\
