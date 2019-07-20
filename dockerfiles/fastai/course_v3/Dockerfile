@@ -1,11 +1,26 @@
 FROM nvidia/cuda:10.1-base-ubuntu18.04
-
+#FROM nvcr.io/nvidia/pytorch:19.05-py3
 LABEL maintainer="Makram Jandar <makramjandar@gmail.com>"
 
 # Install some basic utilities
-RUN apt-get update && apt-get install -y curl ca-certificates sudo git bzip2 \
-    unzip libx11-6 software-properties-common ffmpeg frei0r-plugins vim p7zip-full \
-    wget default-jdk tmux htop && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    curl \
+    ca-certificates \
+    sudo \
+    git \
+    bzip2 \
+    unzip \
+    libx11-6 \
+    software-properties-common \
+    ffmpeg \
+    frei0r-plugins \
+    vim \
+    p7zip-full \
+    wget \
+    default-jdk \
+    tmux \
+    htop \
+ && rm -rf /var/lib/apt/lists/*
 
 # Create a working directory
 RUN mkdir /app
@@ -23,11 +38,14 @@ USER user
 ENV HOME=/home/user
 ENV SHELL=/bin/bash
 SHELL ["/bin/bash", "--login", "-c"]
+
 RUN chmod 777 /home/user
 
 # Install Miniconda
 RUN curl -so ~/miniconda.sh https://repo.continuum.io/miniconda/Miniconda3-4.5.11-Linux-x86_64.sh \
- && chmod +x ~/miniconda.sh && ~/miniconda.sh -b -p ~/miniconda && rm ~/miniconda.sh
+ && chmod +x ~/miniconda.sh \
+ && ~/miniconda.sh -b -p ~/miniconda \
+ && rm ~/miniconda.sh
 
 ENV PATH=/home/user/miniconda/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
@@ -38,12 +56,6 @@ RUN conda install -y -c pytorch -c fastai fastai \
  && conda install -y scikit-learn \
  && conda clean -ya
 
-# CUDA 9.2-specific steps
-#RUN conda install -y -c pytorch \
-#    cuda92 \
-#    magma-cuda92 \
-#    pytorch \
-# && conda clean -ya
 #RUN conda install -y -c fastai torchvision && conda clean -ya
 #RUN conda install -y -c fastai fastai && conda clean -ya
 
@@ -71,28 +83,27 @@ RUN git clone https://github.com/lckr/jupyterlab-variableInspector \
  && python3 install.py --sys-prefix \
  && cd ..  && rm -rf java-kernel
 
-# Install HDF5 Python bindings
-RUN conda install -y h5py && conda clean -ya
-RUN conda install -y -c haasad eidl7zip && conda clean -ya
+#Install HDF5 Python bindings
+RUN conda install -y h5py \
+ && conda clean -ya
+RUN conda install -y -c haasad eidl7zip \
+ && conda clean -ya
 RUN pip install h5py-cache
 
-# Install Kaggle
-RUN pip install kaggle --upgrade && mkdir -p ~/.kaggle/
-COPY kaggle.json /home/user/.kaggle/kaggle.json
 
+#RUN pip install kaggle --upgrade \
+# && mkdir -p ~/.kaggle/
+#COPY kaggle.json /home/user/.kaggle/kaggle.json
 
 COPY .tmux.conf /home/user/
 
-
 WORKDIR /home/user/
-
-# Clone FastAI course-v3
-RUN mkdir fastai
-RUN git clone https://github.com/fastai/course-v3.git /home/user/fastai
-
-# Config Jupy
 RUN mkdir .jupyter
 COPY jupyter_notebook_config.py .jupyter/jupyter_notebook_config.py
 
-EXPOSE 8888
+# Clone course-v3
+RUN git clone https://github.com/fastai/course-v3.git
+
+EXPOSE 6969
 ENTRYPOINT ["jupyter", "lab","--ip=0.0.0.0","--allow-root"]
+
