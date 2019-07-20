@@ -1,7 +1,6 @@
-FROM nvcr.io/nvidia/pytorch:19.05-py3
+FROM nvcr.io/nvidia/pytorch:19.06-py3
 
 LABEL maintainer="Makram Jandar <makramjandar@gmail.com>"
-
 
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \
     python-qt4 \
@@ -14,6 +13,10 @@ WORKDIR /fastai
 RUN git clone https://github.com/fastai/fastai.git . &&\
     /opt/conda/bin/conda env create &&\
     /opt/conda/bin/conda clean -ya
+
+# Clone course-v3
+RUN git clone https://github.com/fastai/course-v3.git
+
 
 ENV PATH /opt/conda/envs/fastai/bin:$PATH
 
