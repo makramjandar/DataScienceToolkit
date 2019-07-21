@@ -42,4 +42,4 @@ RUN jupyter notebook --generate-config &&\
     openssl req -newkey rsa:2048 -nodes -keyout ~/.jupyter/pkey.key -x509 -days 36500 -out ~/.jupyter/cert.pem \
     -subj "/C=FR/ST=PARIS/L=Earth/O=Jupyter/OU=IT/CN=www.makramjandar.com/emailAddress=makramjandar@gmail.com"
 
-CMD ["~/.jupyter/genCert.sh", "jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
