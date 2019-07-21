@@ -45,9 +45,9 @@ As you can see this is a pretty short Dockerfile and that's because of the pytor
 This should take quite a while.
 
 ## How to use it? 
-Now we can use the following command to start a container from the image. It's mounting the $HOME folder into the container and also exposes the port 9999 for your browser. Use `localhost:9999` or the IP of your workstation. Keep in mind that only the data in `fastai/_home` will be persistent when you start a new container!
+Now we can use the following command to start a container from the image. It's mounting the $HOME folder into the container and also exposes the port 8888 for your browser. Use `localhost:8888` or the IP of your workstation. Keep in mind that only the data in `fastai/_home` will be persistent when you start a new container!
 ```shell
-$ docker run -d -p 9999:9999 -v $HOME:/fastai/_home --runtime=nvidia --restart always makramjandar/fastai:latest
+$ docker run -d -p 8888:8888 -v $HOME:/fastai/_home --runtime=nvidia --restart always makramjandar/fastai:latest
 ```
 
 #### Get updates
