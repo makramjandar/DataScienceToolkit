@@ -19,14 +19,15 @@ RUN \
     /opt/conda/bin/conda clean -ya
 
 # Clone course-v3
-RUN git clone https://github.com/fastai/course-v3.git
+RUN \
+    git clone https://github.com/fastai/course-v3.git
 
 ENV PATH /opt/conda/envs/fastai/bin:$PATH
 
 RUN jupyter notebook --generate-config &&\
     # https authentification
-    echo "c.NotebookApp.certfile = u'~/.jupyter/cert.pem'" >> ~/.jupyter/jupyter_notebook_config.py &&\
-    echo "c.NotebookApp.keyfile = u'~/.jupyter/pkey.key'" >> ~/.jupyter/jupyter_notebook_config.py &&\
+    echo "c.NotebookApp.certfile = u'cert.pem'" >> ~/.jupyter/jupyter_notebook_config.py &&\
+    echo "c.NotebookApp.keyfile = u'pkey.key'" >> ~/.jupyter/jupyter_notebook_config.py &&\
     # Set ip to '*' to bind on all interfaces (ips) for the public server
     echo "c.NotebookApp.ip = '*'" >> ~/.jupyter/jupyter_notebook_config.py &&\
     # password jupyter
@@ -36,8 +37,9 @@ RUN jupyter notebook --generate-config &&\
     # No token. But, please, please always use jupyter over ssh tunnel
     echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py &&\
     # It is a good idea to set a known, fixed port for server access
-    echo "c.NotebookApp.port = 9999" >> ~/.jupyter/jupyter_notebook_config.py
-        
-COPY genCert.sh ~/.jupyter/genCert.sh
+    echo "c.NotebookApp.port = 9999" >> ~/.jupyter/jupyter_notebook_config.py &&\
+    # generate certif
+    openssl req -newkey rsa:2048 -nodes -keyout ~/.jupyter/pkey.key -x509 -days 36500 -out ~/.jupyter/cert.pem \
+    -subj "/C=FR/ST=PARIS/L=Earth/O=Jupyter/OU=IT/CN=www.makramjandar.com/emailAddress=makramjandar@gmail.com"
 
 CMD ["~/.jupyter/genCert.sh", "jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
