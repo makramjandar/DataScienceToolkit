@@ -1,12 +1,12 @@
-[![License](https://img.shields.io/badge/license-Do%20What%20The%20Fuck%20You%20Want-red.svg)](http://badges.mit-license.org)
-[![](https://images.microbadger.com/badges/image/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own commit badge on microbadger.com")
+[![License](https://img.shields.io/badge/license-Do%20What%20The%20Fuck%20You%20Want-red.svg)]
+
+[![](https://images.microbadger.com/badges/image/makramjandar/pytorch-fastai.svg)]
+[![](https://images.microbadger.com/badges/version/makramjandar/pytorch-fastai.svg)]
+[![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)]
 
 [Dockerfile](https://raw.githubusercontent.com/makramjandar/DataScienceToolkit/master/dockerfiles/pytorch/fastai/Dockerfile)
 
-
-## Dockerfile for the Fast AI courses (v1-v3)
+## Dockerfile for the Fast AI courses (v1~v3)
 This Dockerfile uses a pre-build and GPU-enabled pytorch image from nvidia to create an isolated environment for the 2018 fast.ai course. Those images are very convenient, because they come batteries included: All CUDA libraries, dependencies and pytorch is pre-installed and ready to go. Only the fast.ai library has to be installed.
 
 ### Who should use this Dockerfile?
