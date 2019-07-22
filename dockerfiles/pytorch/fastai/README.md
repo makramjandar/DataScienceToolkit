@@ -19,18 +19,8 @@ The first thing is to install docker and the nvidia runtime to pass a GPU into a
      # Install docker via get.docker script
      $ curl -fsSL get.docker.com -o get-docker.sh
      
-     # Add the package repositories for nvidia docker
-     $ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
-     $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-     $ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
-     tee /etc/apt/sources.list.d/nvidia-docker.list
-     $ apt-get update
-     
-     # Install nvidia-docker2 and reload the Docker daemon configuration
-     $ apt-get install -y nvidia-docker2
-     $ pkill -SIGHUP dockerd
-     
-     
+     # Install docker via install-nvidia-docker2.sh script
+     $ wget -O - -q 'https://raw.githubusercontent.com/makramjandar/Fast-Data-on-GCP/master/utils/install-nvidia-docker2.sh' | bash
      # To test if everything is installed correctly you can run. 
      # This executes nvidia-smi` inside a container which should display your GPU.
      $ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
@@ -40,7 +30,7 @@ The nvidia GPU cloud is not a cloud service provider but an image registry simil
 Now to download the pytorch image use the command: `$ docker pull nvcr.io/nvidia/pytorch:19.05-py3`.
 
 ## What's inside and how to build
-As you can see this is a pretty short Dockerfile and that's because of the pytorch image. All the nitty-gritty stuff is already done by nvidia. We only have to install the fast.ai library and download the data. I'm going to install the fast.ai library into the container but I'm going to mount the `fast.ai/data` folder from the host. That means, that the folder `fast.ai/data` is going to be the place where you have to store all persistent data: notebooks or code files you worked on or data you downloaded to play around. Everything else is going to be deleted when a container is deleted. Note, that you can also commit changes to a container and start and stop it (like a virtual machine). I'm not doing that, because I want to keep track of the changes I make. Also I'm disabling token and password protection, because this is for local use. So when you want to remote log on your workstation please use a ssh tunnel! To build the image download the Dockerfile to a local folder (with no other content than the Dockerfile), open a terminal in this folder and use the command:
+As you can see this is a pretty short Dockerfile and that's because of the pytorch image. All the nitty-gritty stuff is already done by nvidia. We only have to install the fast.ai library and download the data. I'm going to install the fast.ai library into the container but I'm going to mount the `$HOME` folder from the host. That means, that the folder `$HOME` is going to be the place where you have to store all persistent data: notebooks or code files you worked on or data you downloaded to play around. Everything else is going to be deleted when a container is deleted. Note, that you can also commit changes to a container and start and stop it (like a virtual machine). I'm not doing that, because I want to keep track of the changes I make. Also I'm disabling token and password protection, because this is for local use. So when you want to remote log on your workstation please use a ssh tunnel! To build the image download the Dockerfile to a local folder (with no other content than the Dockerfile), open a terminal in this folder and use the command:
 ```shell
   $ docker build -t makramjandar/pytorch-fastai .
 ```
