@@ -19,7 +19,7 @@ The first thing is to install docker and the nvidia runtime to pass a GPU into a
      # Install docker via get.docker script
      $ curl -fsSL get.docker.com -o get-docker.sh
      
-     # Install docker via install-nvidia-docker2.sh script
+     # Install nvidia-docker2 via install-nvidia-docker2.sh script
      $ wget -O - -q 'https://raw.githubusercontent.com/makramjandar/Fast-Data-on-GCP/master/utils/install-nvidia-docker2.sh' | bash
      # To test if everything is installed correctly you can run. 
      # This executes nvidia-smi` inside a container which should display your GPU.
