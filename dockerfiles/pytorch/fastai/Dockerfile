@@ -1,9 +1,15 @@
 FROM nvcr.io/nvidia/pytorch:19.06-py3
 
-LABEL maintainer="Makram Jandar <makramjandar@gmail.com>"
+ARG BUILD_DATE
+ARG VCS_REF
 
-RUN \
-    apt-get update && \
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/rossf7/label-schema-automated-build.git" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.schema-version="1.0.0-rc1" \
+      maintainer="Makram Jandar <makramjandar@gmail.com>"
+
+RUN apt-get update && \
     apt-get install -y --allow-downgrades --no-install-recommends \
     python-qt4 \
     openssl \
@@ -13,17 +19,16 @@ RUN \
     
 WORKDIR /fastai
 
-RUN \ 
-    git clone https://github.com/fastai/fastai.git . &&\
+RUN git clone https://github.com/fastai/fastai.git . &&\
     /opt/conda/bin/conda env create &&\
     /opt/conda/bin/conda clean -ya
 
 # Clone course-v3
-RUN \
-    git clone https://github.com/fastai/course-v3.git
+RUN git clone https://github.com/fastai/course-v3.git
 
 ENV PATH /opt/conda/envs/fastai/bin:$PATH
 
+# Set Jupyter config
 RUN jupyter notebook --generate-config &&\
     # https authentification
     echo "c.NotebookApp.certfile = u'cert.pem'" >> ~/.jupyter/jupyter_notebook_config.py &&\
