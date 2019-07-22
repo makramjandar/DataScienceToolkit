@@ -6,7 +6,7 @@
 
 [Dockerfile](https://raw.githubusercontent.com/makramjandar/DataScienceToolkit/master/dockerfiles/pytorch/fastai/Dockerfile)
 
-## Dockerfile for the Fast AI courses (v1~v3)
+## Dockerfile for the Fast AI courses (v1-v3)
 This Dockerfile uses a pre-build and GPU-enabled pytorch image from nvidia to create an isolated environment for the 2018 fast.ai course. Those images are very convenient, because they come batteries included: All CUDA libraries, dependencies and pytorch is pre-installed and ready to go. Only the fast.ai library has to be installed.
 
 ### Who should use this Dockerfile?
