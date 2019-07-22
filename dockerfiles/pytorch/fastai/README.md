@@ -1,8 +1,8 @@
-[![License](https://img.shields.io/badge/license-Do%20What%20The%20Fuck%20You%20Want-red.svg)]
+![License](https://img.shields.io/badge/license-Do%20What%20The%20Fuck%20You%20Want-red.svg)
 
-[![](https://images.microbadger.com/badges/image/makramjandar/pytorch-fastai.svg)]
-[![](https://images.microbadger.com/badges/version/makramjandar/pytorch-fastai.svg)]
-[![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)]
+![](https://images.microbadger.com/badges/image/makramjandar/pytorch-fastai.svg)
+![](https://images.microbadger.com/badges/version/makramjandar/pytorch-fastai.svg)
+![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)
 
 [Dockerfile](https://raw.githubusercontent.com/makramjandar/DataScienceToolkit/master/dockerfiles/pytorch/fastai/Dockerfile)
 
