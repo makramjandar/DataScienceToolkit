@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/license-Do%20What%20The%20Fuck%20You%20Want-red.svg)](http://badges.mit-license.org)
 [![](https://images.microbadger.com/badges/image/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)](http://microbadger.com/images/<YOUR IMAGE> “Get your own commit badge on microbadger.com”)
+[![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)](http://microbadger.com/images/makramjandar/pytorch-fastai.svg “Get your own commit badge on microbadger.com”)
 
 
 ## Dockerfile for the Fast AI courses (v1-v3)
