@@ -1,5 +1,8 @@
 ![License](https://img.shields.io/badge/license-Do%20WTF!%20You%20Want-green.svg)
 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/makramjandar/DataScienceToolkit.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/makramjandar/DataScienceToolkit.svg)
+
 [![](https://images.microbadger.com/badges/image/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own commit badge on microbadger.com")
 [![](https://images.microbadger.com/badges/commit/makramjandar/pytorch-fastai.svg)](https://microbadger.com/images/makramjandar/pytorch-fastai "Get your own commit badge on microbadger.com")
