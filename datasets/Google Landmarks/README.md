@@ -1,8 +1,8 @@
 # Google Landmarks Dataset v2
 
 This is the second version of the Google Landmarks dataset, which contains
-images annotated with labels representing human-made and natural landmarks. The
-dataset can be used for landmark recognition and retrieval experiments. This
+images annotated with labels representing human-made and natural landmarks.
+The dataset can be used for landmark recognition and retrieval experiments. This
 version of the dataset contains approximately 5 million images, split into 3
 sets of images: `train`, `index` and `test`.
 
