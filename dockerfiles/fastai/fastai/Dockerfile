@@ -2,7 +2,6 @@ FROM nvcr.io/nvidia/pytorch:19.05-py3
 
 LABEL maintainer="Makram Jandar <makramjandar@gmail.com>"
 
-
 RUN apt-get update && apt-get install -y --allow-downgrades --no-install-recommends \
     python-qt4 \
     libpng-dev &&\
