@@ -23,7 +23,7 @@ RUN git clone https://github.com/fastai/fastai.git . &&\
     /opt/conda/bin/conda env create &&\
     /opt/conda/bin/conda clean -ya
 
-# Clone course-v3
+# Clone FastAI Course-v3
 RUN git clone https://github.com/fastai/course-v3.git
 
 ENV PATH /opt/conda/envs/fastai/bin:$PATH
