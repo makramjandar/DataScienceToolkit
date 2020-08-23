@@ -9,7 +9,7 @@
 [Dockerfile](https://raw.githubusercontent.com/makramjandar/DataScienceToolkit/master/dockerfiles/pytorch/fastai/Dockerfile)
 
 ## Dockerfile for the Fast AI courses (v1-v3)
-This Dockerfile uses a pre-build and GPU-enabled pytorch image from nvidia to create an isolated environment for the 2018 fast.ai course. Those images are very convenient, because they come batteries included: All CUDA libraries, dependencies and pytorch is pre-installed and ready to go. Only the fast.ai library has to be installed.
+This Dockerfile uses a pre-build and GPU-enabled pytorch image from nvidia to create an isolated environment for the 2018 fast.ai course. Those images are very convenient, because they come batteries included: All CUDA libraries, dependencies & pytorch is pre-installed and ready to go. Only the fast.ai library has to be installed.
 
 ### Who should use this Dockerfile?
 If you are using your own PC with a CUDA enabled device I would highly recommend docker. While isolation with `venv` or `conda` isolates your python environment, it does not isolate the complex CUDA toolchain. Also sometimes if you want to use different stacks like keras/TensorFlow and pytorch they can have different dependencies. And it works great!
