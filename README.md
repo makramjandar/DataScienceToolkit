@@ -1,6 +1,5 @@
 # DataScience Toolkit  
 ![License](https://img.shields.io/badge/license-Do%20WTF!%20You%20Want-green.svg)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/makramjandar/DataScienceToolkit.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/makramjandar/DataScienceToolkit.svg)
 
 ### [Dockerfile fastai](https://raw.githubusercontent.com/makramjandar/DataScienceToolkit/master/dockerfiles/fastai/fastai/Dockerfile)
